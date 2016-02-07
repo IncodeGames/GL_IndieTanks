@@ -2,6 +2,7 @@
 #define MAIN_INDIETANKS_H
 #include "Display.h"
 
+
 class Main_IndieTanks
 {
 	public:
@@ -22,6 +23,7 @@ class Main_IndieTanks
 
 		void InitDisplay();
 		void GameLoop();
+		void Start();
 		void Update();
 		void ProcessInput();
 };

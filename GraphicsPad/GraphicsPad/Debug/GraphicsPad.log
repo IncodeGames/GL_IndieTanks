@@ -1,14 +1,17 @@
-﻿Build started 2/7/2016 2:24:39 PM.
+﻿Build started 2/7/2016 4:12:49 PM.
      1>Project "C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\GraphicsPad\GraphicsPad.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main_IndieTanks.cpp
          Main_IndieTanks.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\Debug\GraphicsPad.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\lib glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\Debug\GraphicsPad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\Debug\GraphicsPad.lib" /MACHINE:X86 Debug\Display.obj
-         Debug\Main_IndieTanks.obj
-         GraphicsPad.vcxproj -> C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\Debug\GraphicsPad.exe
-     1>Done Building Project "C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\GraphicsPad\GraphicsPad.vcxproj" (Build target(s)).
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.h(29): error C2143: syntax error: missing ';' before '*'
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.h(29): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.cpp(28): error C2065: 'sprite': undeclared identifier
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.cpp(37): error C2065: 'sprite': undeclared identifier
+     1>c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.cpp(37): error C2227: left of '->draw' must point to class/struct/union/generic type
+         c:\users\jupiter\documents\indietanksrepo\gl_indietanks\graphicspad\graphicspad\main_indietanks.cpp(37): note: type is 'unknown-type'
+     1>Done Building Project "C:\Users\Jupiter\Documents\IndieTanksRepo\GL_IndieTanks\GraphicsPad\GraphicsPad\GraphicsPad.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.28
+Time Elapsed 00:00:00.54
