@@ -27,8 +27,6 @@ Display::Display(int width, int height, const std::string& title)
 	{
 		std::cerr << "Glew failed to initialize!" << std::endl;
 	}
-
-	isClosed = false;
 }
 
 
@@ -40,22 +38,7 @@ Display::~Display()
 	SDL_Quit();
 }
 
-void Display::Update()
+void Display::BufferUpdate()
 {
 	SDL_GL_SwapWindow(sdlWindow);
-
-	SDL_Event event;
-
-	while (SDL_PollEvent(&event))
-	{
-		if (event.type == SDL_QUIT)
-		{
-			isClosed = true;
-		}
-	}
-}
-
-bool Display::IsClosed()
-{
-	return isClosed;
 }
