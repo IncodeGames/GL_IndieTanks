@@ -2,9 +2,8 @@
 
 
 
-Sprite::Sprite(float x, float y, float width, float height)
+Sprite::Sprite(float x, float y, float width, float height) : vboID(0)
 {
-	vboID = 0;
 	glGenBuffers(1, &vboID);
 
 	float vertexData[12];

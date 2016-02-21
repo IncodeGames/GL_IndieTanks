@@ -6,21 +6,21 @@
 
 class Display
 {
-public:
-	Display(int width, int height, const std::string& title);
-	virtual ~Display();
+	public:
+		Display(int width, int height, const std::string& title);
+		virtual ~Display();
 
-	void BufferUpdate();
+		void BufferUpdate();
 
-protected:
-private:
-	Display(const Display& other) {}
-	Display& operator=(const Display& other) {}
+	protected:
+	private:
+		Display(const Display& other) {}
+		Display& operator=(const Display& other) {}
 
-	SDL_Window* sdlWindow;
-	SDL_GLContext glContext;
+		SDL_Window* sdlWindow;
+		SDL_GLContext glContext;
 
-	bool isClosed;
+		bool isClosed;
 };
 
 #endif
