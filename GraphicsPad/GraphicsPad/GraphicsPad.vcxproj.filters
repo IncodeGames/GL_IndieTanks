@@ -5,6 +5,7 @@
     <ClCompile Include="Main_IndieTanks.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="GLSLProgram.cpp" />
+    <ClCompile Include="IOManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
@@ -12,5 +13,6 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="Vertex2D.h" />
+    <ClInclude Include="IOManager.h" />
   </ItemGroup>
 </Project>

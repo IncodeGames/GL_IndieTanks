@@ -147,12 +147,14 @@
   <ItemGroup>
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="GLSLProgram.cpp" />
+    <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="Main_IndieTanks.cpp" />
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
     <ClInclude Include="GLSLProgram.h" />
+    <ClInclude Include="IOManager.h" />
     <ClInclude Include="Main_IndieTanks.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Vertex2D.h" />
