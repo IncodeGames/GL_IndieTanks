@@ -1,8 +1,7 @@
 #include "Sprite.h"
-#include "Vertex2D.h"
+#include "Primitives/Vertex2D.h"
 
 #include <cstddef>
-
 
 
 Sprite::Sprite(float x, float y, float width, float height) : vboID(0)

@@ -5,7 +5,9 @@
 #include "Main_IndieTanks.h"
 #include "Display.h"
 #include "Sprite.h"
-
+#include "Primitives\ShapeData3D.h"
+#include "Primitives\Triangle.h"
+#include "Camera.h"
 
 Main_IndieTanks::Main_IndieTanks(): gameState(GameState::RUNNING), 
 									time(0)
@@ -37,10 +39,13 @@ void Main_IndieTanks::Update()
 
 	colorShaderProgram.Use();
 
+	Camera camera(glm::vec3(0, 0, -3), 70.0f, (float)1024 / 768, 0.01f, 1000.0f);
 	//Set uniforms
 	GLuint timeLocation = colorShaderProgram.GetUniformLocation("time");
 	glUniform1f(timeLocation, time);
 
+	Triangle triangle(0);
+	triangle.draw();
 	Sprite sprite(0.0f, 0.0f, 0.5f, 0.5f);
 	sprite.draw();
 

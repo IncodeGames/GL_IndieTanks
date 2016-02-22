@@ -149,15 +149,22 @@
     <ClCompile Include="GLSLProgram.cpp" />
     <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="Main_IndieTanks.cpp" />
+    <ClCompile Include="Primitives\ShapeBase.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Primitives\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="IOManager.h" />
     <ClInclude Include="Main_IndieTanks.h" />
+    <ClInclude Include="Primitives\ShapeData3D.h" />
+    <ClInclude Include="Primitives\ShapeBase.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Vertex2D.h" />
+    <ClInclude Include="Primitives\Vertex2D.h" />
+    <ClInclude Include="Primitives\Vertex3D.h" />
+    <ClInclude Include="Primitives\Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

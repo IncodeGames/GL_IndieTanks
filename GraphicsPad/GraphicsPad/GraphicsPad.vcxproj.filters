@@ -6,13 +6,20 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="GLSLProgram.cpp" />
     <ClCompile Include="IOManager.cpp" />
+    <ClCompile Include="Primitives\ShapeBase.cpp" />
+    <ClCompile Include="Primitives\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
     <ClInclude Include="Main_IndieTanks.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="GLSLProgram.h" />
-    <ClInclude Include="Vertex2D.h" />
     <ClInclude Include="IOManager.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Primitives\Vertex2D.h" />
+    <ClInclude Include="Primitives\Vertex3D.h" />
+    <ClInclude Include="Primitives\ShapeData3D.h" />
+    <ClInclude Include="Primitives\ShapeBase.h" />
+    <ClInclude Include="Primitives\Triangle.h" />
   </ItemGroup>
 </Project>
