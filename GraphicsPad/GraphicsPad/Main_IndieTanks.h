@@ -1,6 +1,7 @@
 #ifndef MAIN_INDIETANKS_H
 #define MAIN_INDIETANKS_H
 
+#include "GLSLProgram.h" //TODO: remove this
 #include "Display.h"
 
 
@@ -22,7 +23,13 @@ class Main_IndieTanks
 		Display *display;
 		GameState gameState;
 
-		void InitDisplay();
+		GLSLProgram colorShaderProgram;
+
+
+		float time;
+
+		void InitSystems();
+		void InitShaders();
 		void GameLoop();
 		void Start();
 		void Update();

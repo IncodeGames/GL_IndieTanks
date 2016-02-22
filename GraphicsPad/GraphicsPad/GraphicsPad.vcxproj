@@ -155,6 +155,7 @@
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="Main_IndieTanks.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Vertex2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,5 +11,6 @@
     <ClInclude Include="Main_IndieTanks.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="GLSLProgram.h" />
+    <ClInclude Include="Vertex2D.h" />
   </ItemGroup>
 </Project>

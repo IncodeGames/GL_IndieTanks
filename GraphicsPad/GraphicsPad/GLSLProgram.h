@@ -14,11 +14,24 @@ class GLSLProgram
 
 		void LinkShaders();
 
-	private:
-		GLuint programID;
+		void AddAttribute(const std::string &attributeName);
 
+		GLint GetUniformLocation(const std::string &uniformName);
+
+		void Use();
+		void Unuse();
+
+	private:
+		//Neccessary IDs
+		GLuint programID;
 		GLuint vertShaderID;
 		GLuint fragShaderID;
+
+		//Attribute variables
+		int attributeCount;
+
+
+		void compileShader(const std::string &filePath, GLuint id);
 };
 
 #endif

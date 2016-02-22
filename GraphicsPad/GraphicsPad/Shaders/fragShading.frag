@@ -1,8 +1,16 @@
 #version 130
+//Input vertex color
+in vec2 fragmentPosition;
+in vec4 fragmentColor;
 
-out vec3 color;
+out vec4 color;
+
+uniform float time;
 
 void main()
 {
-    color = vec3(1.0f, 0.0f, 0.0f);
+    color = vec4((fragmentColor.r * cos(fragmentPosition.x + time) + 1.0) * 0.5,
+                 (fragmentColor.g * cos(fragmentPosition.y + time) + 1.0) * 0.5,
+                 (fragmentColor.b * cos(fragmentPosition.x * 0.5 + time) + 1.0) * 0.5, 
+                 fragmentColor.a);
 }
