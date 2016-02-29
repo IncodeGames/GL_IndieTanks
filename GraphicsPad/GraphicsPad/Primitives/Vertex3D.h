@@ -2,6 +2,7 @@
 #define VERTEX3D_H
 
 #include <GL/glew.h>
+#include <GLM\glm.hpp>
 
 struct Position
 {
@@ -67,7 +68,7 @@ struct Color
 
 struct Vertex3D
 {
-	Position position;
+	glm::vec3 position;
 	Color color;
 };
 

@@ -12,12 +12,13 @@ void ShapeBase::draw()
 	glEnableVertexAttribArray(0);
 
 	//This is positional attribute pointer //TODO: name a variable to clarify attribute pointers
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex3D), (void*)offsetof(Vertex3D, position));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex3D), (void*)offsetof(Vertex3D, position));
 	//This is the color attribute pointer
 	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex3D), (void*)offsetof(Vertex3D, color));
 
 	//Draw the vertices of the arrays
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+	//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, 0);
 
 	//Disable the vertex attribute array
 	glDisableVertexAttribArray(0);

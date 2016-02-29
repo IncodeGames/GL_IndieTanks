@@ -12,6 +12,14 @@ class Main_IndieTanks
 		~Main_IndieTanks();
 
 		void Run();
+		int getWidth() const
+		{
+			return mainWidth;
+		}
+		int getHeight() const
+		{
+			return mainHeight;
+		}
 
 		enum GameState
 		{
@@ -25,7 +33,8 @@ class Main_IndieTanks
 
 		GLSLProgram colorShaderProgram;
 
-
+		int mainWidth;
+		int mainHeight;
 		float time;
 
 		void InitSystems();

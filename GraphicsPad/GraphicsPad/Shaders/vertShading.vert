@@ -1,16 +1,16 @@
 #version 130
 
-in vec2 vertexPosition;
+in vec3 vertexPosition;
 in vec4 vertexColor;
 
-out vec2 fragmentPosition;
+out vec3 fragmentPosition;
 out vec4 fragmentColor;
+
+uniform mat4 mvpMatrix;
 
 void main()
 {
-    gl_Position.xy = vertexPosition;
-    gl_Position.z = 0.0f;
-    gl_Position.w = 1.0f;
+    gl_Position = vec4(vertexPosition, 1.0f) * mvpMatrix;
     
     fragmentPosition = vertexPosition;
     

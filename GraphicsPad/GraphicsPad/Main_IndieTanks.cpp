@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <GL/glew.h>
+#include <GLM\glm.hpp>
+#include <GLM\gtc\matrix_transform.hpp>
 
 #include "Main_IndieTanks.h"
 #include "Display.h"
@@ -10,9 +12,11 @@
 #include "Camera.h"
 
 Main_IndieTanks::Main_IndieTanks(): gameState(GameState::RUNNING), 
-									time(0)
+									time(0),
+									mainWidth(1024),
+									mainHeight(768)
 {
-	display = new Display(1024, 768, "Hello world");
+	display = new Display(mainWidth, mainHeight, "Hello world");
 }
 
 Main_IndieTanks::~Main_IndieTanks()
@@ -36,19 +40,25 @@ void Main_IndieTanks::Update()
 	glClearDepth(1.0f);
 	glClearColor(0.0f, 0.15f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, getWidth(), getHeight());
 
+	//Use shader programs
 	colorShaderProgram.Use();
 
 	Camera camera(glm::vec3(0, 0, -3), 70.0f, (float)1024 / 768, 0.01f, 1000.0f);
+	
+	glm::mat4 modelMatrix = camera.GetViewProjection() * glm::translate(glm::mat4(), glm::vec3(-0.5f, 0.0f, 3.0f));
 	//Set uniforms
+	glUniformMatrix4fv(colorShaderProgram.GetUniformLocation("mvpMatrix"), 1, GL_FALSE, &modelMatrix[0][0]);
 	GLuint timeLocation = colorShaderProgram.GetUniformLocation("time");
 	glUniform1f(timeLocation, time);
 
 	Triangle triangle(0);
 	triangle.draw();
-	Sprite sprite(0.0f, 0.0f, 0.5f, 0.5f);
+	Sprite sprite(0.25f, 0.0f, 0.5f, 0.5f);
 	sprite.draw();
 
+	//Unuse shader programs
 	colorShaderProgram.Unuse();
 
 	display->BufferUpdate();
@@ -90,6 +100,8 @@ void Main_IndieTanks::ProcessInput()
 void Main_IndieTanks::InitSystems()
 {
 	//display = new Display(1024, 768, "Hello world");
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
 	InitShaders();
 
 }
