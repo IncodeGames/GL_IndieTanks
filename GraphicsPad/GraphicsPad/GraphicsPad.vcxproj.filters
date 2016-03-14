@@ -1,25 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="Main_IndieTanks.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="GLSLProgram.cpp" />
-    <ClCompile Include="IOManager.cpp" />
     <ClCompile Include="Primitives\ShapeBase.cpp" />
     <ClCompile Include="Primitives\Triangle.cpp" />
+    <ClCompile Include="core\Display.cpp" />
+    <ClCompile Include="core\GLSLProgram.cpp" />
+    <ClCompile Include="core\IOManager.cpp" />
+    <ClCompile Include="core\Main_IndieTanks.cpp" />
+    <ClCompile Include="Primitives\Sprite.cpp" />
+    <ClCompile Include="transform.cpp" />
+    <ClCompile Include="Primitives\Cube.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="Main_IndieTanks.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="GLSLProgram.h" />
-    <ClInclude Include="IOManager.h" />
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="Primitives\Vertex2D.h" />
     <ClInclude Include="Primitives\Vertex3D.h" />
     <ClInclude Include="Primitives\ShapeData3D.h" />
     <ClInclude Include="Primitives\ShapeBase.h" />
     <ClInclude Include="Primitives\Triangle.h" />
+    <ClInclude Include="core\Camera.h" />
+    <ClInclude Include="core\Display.h" />
+    <ClInclude Include="core\GLSLProgram.h" />
+    <ClInclude Include="core\IOManager.h" />
+    <ClInclude Include="core\Main_IndieTanks.h" />
+    <ClInclude Include="Primitives\Sprite.h" />
+    <ClInclude Include="transform.h" />
+    <ClInclude Include="Primitives\Cube.h" />
   </ItemGroup>
 </Project>

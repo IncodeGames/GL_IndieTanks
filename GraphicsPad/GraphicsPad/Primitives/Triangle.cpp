@@ -11,34 +11,12 @@ Triangle::Triangle(GLuint vertexID)
 	glGenBuffers(1, &vboID);
 
 	ShapeData3D shapeData3d;
-	Vertex3D triangle[6];
+	Vertex3D triangle[3];
 
-	//triangle[0].position = glm::vec3(-0.5f, -0.5f, -0.5f);
-	triangle[0].position.x = -0.5f;
-	triangle[0].position.y = -0.5f;
-	triangle[0].position.z = -0.5f;
-
-	//triangle[1].position = glm::vec3(-0.5f, -0.5f, 0.5f);
-	triangle[1].position.x = 1.0f;
-	triangle[1].position.y = -0.0f;
-	triangle[1].position.z = 0.0f;
-
-	//triangle[2].position = glm::vec3(-0.5f, -0.5f, 0.5f);
-	triangle[2].position.x = -0.5f;
-	triangle[2].position.y = 1.0f;
-	triangle[2].position.z = 0.5f;
-
-	triangle[3].position.x = 0.5f;
-	triangle[3].position.y = 0.5f;
-	triangle[3].position.z = -0.5f;
-
-	triangle[4].position.x = -0.5f;
-	triangle[4].position.y = -0.5f;
-	triangle[4].position.z = -0.5f;
-
-	triangle[5].position.x = -0.5f;
-	triangle[5].position.y = 0.5f;
-	triangle[5].position.z = -0.5f;
+	triangle[0].position = glm::vec3(-1.0f, -0.0f, 0.0f);
+	triangle[1].position = glm::vec3(-2.0f, -0.0f, 0.0f);
+	triangle[2].position = glm::vec3(-1.0f, 1.0f, 0.0f);
+	
 
 
 	shapeData3d.numVertices = NUM_ARRAY_ELEMENTS(triangle);
@@ -46,7 +24,7 @@ Triangle::Triangle(GLuint vertexID)
 	memcpy(shapeData3d.vertices, triangle, sizeof(triangle));
 
 
-	GLushort indices[] = { 0, 1, 2 };
+	GLushort indices[] = { 0, 1, 2, 3 };
 	shapeData3d.numIndices = NUM_ARRAY_ELEMENTS(indices);
 	shapeData3d.indices = new GLushort[shapeData3d.numIndices];
 	memcpy(shapeData3d.indices, indices, sizeof(indices));

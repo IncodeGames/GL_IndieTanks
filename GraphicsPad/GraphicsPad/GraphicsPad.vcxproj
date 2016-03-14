@@ -145,26 +145,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="GLSLProgram.cpp" />
-    <ClCompile Include="IOManager.cpp" />
-    <ClCompile Include="Main_IndieTanks.cpp" />
+    <ClCompile Include="core\Display.cpp" />
+    <ClCompile Include="core\GLSLProgram.cpp" />
+    <ClCompile Include="core\IOManager.cpp" />
+    <ClCompile Include="core\Main_IndieTanks.cpp" />
+    <ClCompile Include="Primitives\Cube.cpp" />
     <ClCompile Include="Primitives\ShapeBase.cpp" />
-    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Primitives\Sprite.cpp" />
     <ClCompile Include="Primitives\Triangle.cpp" />
+    <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="GLSLProgram.h" />
-    <ClInclude Include="IOManager.h" />
-    <ClInclude Include="Main_IndieTanks.h" />
+    <ClInclude Include="core\Camera.h" />
+    <ClInclude Include="core\Display.h" />
+    <ClInclude Include="core\GLSLProgram.h" />
+    <ClInclude Include="core\IOManager.h" />
+    <ClInclude Include="core\Main_IndieTanks.h" />
+    <ClInclude Include="Primitives\Cube.h" />
     <ClInclude Include="Primitives\ShapeData3D.h" />
     <ClInclude Include="Primitives\ShapeBase.h" />
-    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Primitives\Sprite.h" />
     <ClInclude Include="Primitives\Vertex2D.h" />
     <ClInclude Include="Primitives\Vertex3D.h" />
     <ClInclude Include="Primitives\Triangle.h" />
+    <ClInclude Include="transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,15 +6,13 @@
 
 struct Position
 {
-	float x;
-	float y;
-	float z;
+	glm::vec3  p;
 
 	void SetPosition(float newX, float newY, float newZ)
 	{
-		x = newX;
-		y = newY;
-		z = newZ;
+		p.x = newX;
+		p.y = newY;
+		p.z = newZ;
 	}
 };
 
@@ -46,6 +44,14 @@ struct Color
 		g = green;
 		b = blue;
 		a = alpha;
+	}
+
+	Color(glm::vec3 color) //TODO: make own vectors for instances like this
+	{
+		r = color.x;
+		g = color.y;
+		b = color.z;
+		a = 255;
 	}
 
 	//Function that sets new RGB values based on parameters
