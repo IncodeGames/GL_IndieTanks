@@ -49,7 +49,7 @@ void Main_IndieTanks::Update()
 
 	Camera camera(glm::vec3(0, 0, -3), 70.0f, (float)1024 / 768, 0.01f, 1000.0f);
 	
-	glm::mat4 modelMatrix = camera.GetViewProjection() * glm::translate(glm::mat4(), glm::vec3(100/x, 100/y, 1.0f));
+	glm::mat4 modelMatrix = camera.GetViewProjection() * glm::translate(glm::mat4(), glm::vec3(100/x, 100/y, 1.0f)) * glm::rotate(glm::mat4(), 54.0f, glm::vec3(10/x, 10/y, 0));
 	//Set uniforms
 	glUniformMatrix4fv(colorShaderProgram.GetUniformLocation("mvpMatrix"), 1, GL_FALSE, &modelMatrix[0][0]);
 	GLuint timeLocation = colorShaderProgram.GetUniformLocation("time");
