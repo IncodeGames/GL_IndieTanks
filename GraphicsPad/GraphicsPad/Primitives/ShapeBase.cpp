@@ -17,7 +17,7 @@ void ShapeBase::draw()
 	glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex3D), (void*)offsetof(Vertex3D, color));
 
 	//Draw the vertices of the arrays
-	glDrawArrays(GL_POLYGON, 0, 24); //TODO: determine best line to use here, originally GL_TRIANGLES, 0, 6
+	glDrawArrays(GL_QUADS, 0, 24); //TODO: determine best line to use here, originally GL_TRIANGLES, 0, 6
 	//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, 0);
 
 	//Disable the vertex attribute array

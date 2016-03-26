@@ -10,39 +10,39 @@ Cube::Cube(GLuint vertexID)
 	ShapeData3D shapeData3d;
 	Vertex3D cube[24];
 
-	cube[0].position = glm::vec3(-0.5, -0.5, -0.5);
-	cube[1].position = glm::vec3(-0.5, 0.5, -0.5); 
-	cube[2].position = glm::vec3(0.5, 0.5, -0.5);       
-	cube[3].position = glm::vec3(0.5, -0.5, -0.5);
+	cube[0].position = glm::vec3(-1.0f, +1.0f, +1.0f);
+	cube[1].position = glm::vec3(+1.0f, +1.0f, +1.0f);
+	cube[2].position = glm::vec3(+1.0f, +1.0f, -1.0f);
+	cube[3].position = glm::vec3(-1.0f, +1.0f, -1.0f);
 
-	cube[4].position = glm::vec3(0.5, -0.5, 0.5);
-	cube[5].position = glm::vec3(0.5, 0.5, 0.5);
-	cube[6].position = glm::vec3(-0.5, 0.5, 0.5);
-	cube[7].position = glm::vec3(-0.5, -0.5, 0.5);
+	cube[4].position = glm::vec3(-1.0f, +1.0f, -1.0f);
+	cube[5].position = glm::vec3(+ 1.0f, +1.0f, -1.0f);
+	cube[6].position = glm::vec3(+1.0f, -1.0f, -1.0f);
+	cube[7].position = glm::vec3(-1.0f, -1.0f, -1.0f);
 
 	// Purple side - RIGHT
-	cube[8].position = glm::vec3(0.5, -0.5, -0.5);
-	cube[9].position = glm::vec3(0.5, 0.5, -0.5);
-	cube[10].position = glm::vec3(0.5, 0.5, 0.5);
-	cube[11].position = glm::vec3(0.5, -0.5, 0.5);
+	cube[8].position = glm::vec3(+1.0f, +1.0f, -1.0f);
+	cube[9].position = glm::vec3(+1.0f, +1.0f, +1.0f);
+	cube[10].position = glm::vec3(+1.0f, -1.0f, +1.0f);
+	cube[11].position = glm::vec3(+1.0f, -1.0f, -1.0f);
 
 	// Green side - LEFT
-	cube[12].position = glm::vec3(-0.5, -0.5, 0.5);
-	cube[13].position = glm::vec3(-0.5, 0.5, 0.5);
-	cube[14].position = glm::vec3(-0.5, 0.5, -0.5);
-	cube[15].position = glm::vec3(-0.5, -0.5, -0.5);
+	cube[12].position = glm::vec3(-1.0f, +1.0f, +1.0f);
+	cube[13].position = glm::vec3(-1.0f, +1.0f, -1.0f);
+	cube[14].position = glm::vec3(-1.0f, -1.0f, -1.0f);
+	cube[15].position = glm::vec3(-1.0f, -1.0f, +1.0f);
 
 	// Blue side - TOP
-	cube[16].position = glm::vec3(0.5, 0.5, 0.5);
-	cube[17].position = glm::vec3(0.5, 0.5, -0.5);
-	cube[18].position = glm::vec3(-0.5, 0.5, -0.5);
-	cube[19].position = glm::vec3(-0.5, 0.5, 0.5);
+	cube[16].position = glm::vec3(+1.0f, +1.0f, +1.0f);
+	cube[17].position = glm::vec3(-1.0f, +1.0f, +1.0f);
+	cube[18].position = glm::vec3(-1.0f, -1.0f, +1.0f);
+	cube[19].position = glm::vec3(+1.0f, -1.0f, +1.0f);
 
 	// Red side - BOTTOM
-	cube[20].position = glm::vec3(0.5, -0.5, -0.5);
-	cube[21].position = glm::vec3(0.5, -0.5, 0.5);
-	cube[22].position = glm::vec3(-0.5, -0.5, 0.5);
-	cube[23].position = glm::vec3(-0.5, -0.5, -0.5);
+	cube[20].position = glm::vec3(+1.0f, -1.0f, -1.0f);
+	cube[21].position = glm::vec3(-1.0f, -1.0f, -1.0f);
+	cube[22].position = glm::vec3(-1.0f, -1.0f, +1.0f);
+	cube[23].position = glm::vec3(+1.0f, -1.0f, +1.0f);
 
 
 	shapeData3d.numVertices = NUM_ARRAY_ELEMENTS(cube);

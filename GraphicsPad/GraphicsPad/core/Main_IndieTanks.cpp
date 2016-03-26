@@ -13,6 +13,10 @@
 #include "Camera.h"
 float x = 0.0f;
 float y = 0.0f;
+
+float rotX = 0.0f;
+float rotY = 0.0f;
+
 Main_IndieTanks::Main_IndieTanks(): gameState(GameState::RUNNING), 
 									time(0),
 									mainWidth(1024),
@@ -47,9 +51,12 @@ void Main_IndieTanks::Update()
 	//Use shader programs
 	colorShaderProgram.Use();
 
-	Camera camera(glm::vec3(0, 0, -3), 70.0f, (float)1024 / 768, 0.01f, 1000.0f);
-	
-	glm::mat4 modelMatrix = camera.GetViewProjection() * glm::translate(glm::mat4(), glm::vec3(100/x, 100/y, 1.0f)) * glm::rotate(glm::mat4(), 54.0f, glm::vec3(10/x, 10/y, 0));
+	Camera camera(glm::vec3(0, 0, -7), 70.0f, (float)getWidth() / getHeight(), 0.01f, 1000.0f);
+
+	glm::mat4 projectionMatrix = camera.GetViewProjection();
+	glm::mat4 translationProjectionMatrix = glm::translate(projectionMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
+	glm::mat4 modelMatrix = glm::rotate(translationProjectionMatrix, rotY, glm::vec3(x, y, 1.0f));
+
 	//Set uniforms
 	glUniformMatrix4fv(colorShaderProgram.GetUniformLocation("mvpMatrix"), 1, GL_FALSE, &modelMatrix[0][0]);
 	GLuint timeLocation = colorShaderProgram.GetUniformLocation("time");
@@ -94,6 +101,31 @@ void Main_IndieTanks::ProcessInput()
 				printf("Y mouse position: %i \n\n", inputEvent.motion.y );	
 				x = inputEvent.motion.x;
 				y = inputEvent.motion.y;
+				break;
+			}
+			case SDL_KEYDOWN:
+			{
+				SDL_Keysym key = inputEvent.key.keysym;
+				if (key.sym == SDLK_ESCAPE)
+				{
+					gameState = GameState::QUIT;
+				}
+				if (key.sym == SDLK_RIGHT)
+				{
+					rotX += 0.1f;
+				}
+				if (key.sym == SDLK_LEFT)
+				{
+					rotX -= 0.1f;
+				}
+				if (key.sym == SDLK_UP)
+				{
+					rotY += 0.1f;
+				}
+				if (key.sym == SDLK_DOWN)
+				{
+					rotY -= 0.1f;
+				}
 				break;
 			}
 			case SDL_QUIT:
