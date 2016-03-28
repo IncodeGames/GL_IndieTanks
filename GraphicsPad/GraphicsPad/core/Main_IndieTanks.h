@@ -35,7 +35,7 @@ class Main_IndieTanks
 
 		int mainWidth;
 		int mainHeight;
-		float time;
+		double time;
 
 		void InitSystems();
 		void InitShaders();

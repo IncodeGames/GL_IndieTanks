@@ -41,9 +41,9 @@ public:
 		return glm::quat(Matrix4f().InitRotationFromDirection((point -position).Normalized(), up));
 	}*/
 
-	inline glm::vec3* GetPos() { return &position; }
+	inline glm::vec3* GetPos()					 { return &position; }
 	inline const glm::vec3& GetPos()       const { return position; }
-	inline glm::quat* GetRot() { return &rotation; }
+	inline glm::quat* GetRot()					 { return &rotation; }
 	inline const glm::quat& GetRot()	   const { return rotation; }
 	inline glm::vec3 GetScale()			   const { return scale; }
 	//inline glm::vec3 GetTransformedPos()   const { return glm::vec3(GetParentMatrix().Transform(position)); }

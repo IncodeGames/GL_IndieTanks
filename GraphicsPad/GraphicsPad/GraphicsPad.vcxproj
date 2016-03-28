@@ -149,18 +149,34 @@
     <ClCompile Include="core\GLSLProgram.cpp" />
     <ClCompile Include="core\IOManager.cpp" />
     <ClCompile Include="core\Main_IndieTanks.cpp" />
+    <ClCompile Include="core\Entity.cpp" />
+    <ClCompile Include="core\Input.cpp" />
+    <ClCompile Include="Lighting.cpp" />
+    <ClCompile Include="Primitives\Plane.cpp" />
+    <ClCompile Include="Rendering\Mesh.cpp" />
+    <ClCompile Include="Rendering\Obj_Loader.cpp" />
     <ClCompile Include="Primitives\Cube.cpp" />
     <ClCompile Include="Primitives\ShapeBase.cpp" />
     <ClCompile Include="Primitives\Sprite.cpp" />
     <ClCompile Include="Primitives\Triangle.cpp" />
+    <ClCompile Include="Rendering\Texture.cpp" />
+    <ClCompile Include="Rendering\Stb_Image.cpp" />
+    <ClCompile Include="core\Time.cpp" />
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Camera.h" />
     <ClInclude Include="core\Display.h" />
+    <ClInclude Include="core\Entity_Component.h" />
     <ClInclude Include="core\GLSLProgram.h" />
     <ClInclude Include="core\IOManager.h" />
     <ClInclude Include="core\Main_IndieTanks.h" />
+    <ClInclude Include="core\Entity.h" />
+    <ClInclude Include="core\Input.h" />
+    <ClInclude Include="Lighting.h" />
+    <ClInclude Include="Primitives\Plane.h" />
+    <ClInclude Include="Rendering\Mesh.h" />
+    <ClInclude Include="Rendering\Obj_Loader.h" />
     <ClInclude Include="Primitives\Cube.h" />
     <ClInclude Include="Primitives\ShapeData3D.h" />
     <ClInclude Include="Primitives\ShapeBase.h" />
@@ -168,6 +184,9 @@
     <ClInclude Include="Primitives\Vertex2D.h" />
     <ClInclude Include="Primitives\Vertex3D.h" />
     <ClInclude Include="Primitives\Triangle.h" />
+    <ClInclude Include="Rendering\Texture.h" />
+    <ClInclude Include="Rendering\Stb_Image.h" />
+    <ClInclude Include="core\Time.h" />
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

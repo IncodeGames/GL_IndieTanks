@@ -10,6 +10,7 @@ public:
 	virtual void draw();
 protected:
 	GLuint vboID;
+	GLushort numIndices;
 };
 
 #endif

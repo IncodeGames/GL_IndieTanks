@@ -74,8 +74,38 @@ struct Color
 
 struct Vertex3D
 {
+	Vertex3D() {}
+	Vertex3D(const glm::vec3& pos, const glm::vec2& texCoord, const glm::vec3& normal)
+	{
+		this->position = pos;
+		this->texCoord = texCoord;
+		this->normal = normal;
+	}
+
 	glm::vec3 position;
 	Color color;
+	glm::vec2 texCoord;
+	glm::vec3 normal;
+
+	glm::vec3* GetPos()
+	{
+		return &position;
+	}
+
+	Color* GetColor()
+	{
+		return &color;
+	}
+
+	glm::vec2* GetTextureCoords()
+	{
+		return &texCoord;
+	}
+
+	glm::vec3* GetNormal()
+	{
+		return &normal;
+	}
 };
 
 
