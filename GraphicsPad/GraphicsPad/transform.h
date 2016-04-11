@@ -54,12 +54,15 @@ public:
 	inline void SetScale(float scale) { scale = scale; }
 	inline void SetParent(Transform* parent) { parent = parent; }
 
-private:
-	//const glm::mat4& GetParentMatrix() const;
-
 	glm::vec3 position;
 	glm::quat rotation;
 	glm::vec3 scale;
+private:
+	//const glm::mat4& GetParentMatrix() const;
+
+	/*glm::vec3 position;
+	glm::quat rotation;
+	glm::vec3 scale;*/
 
 	/*Transform* parent;
 	mutable glm::mat4 parentMatrix;*/ //TODO: May need to specify fmat4, and check if parent matrix is needed

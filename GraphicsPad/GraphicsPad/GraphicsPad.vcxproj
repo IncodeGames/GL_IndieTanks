@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="core\Display.cpp" />
     <ClCompile Include="core\GLSLProgram.cpp" />
     <ClCompile Include="core\IOManager.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="core\Camera.h" />
     <ClInclude Include="core\Display.h" />
     <ClInclude Include="core\Entity_Component.h" />

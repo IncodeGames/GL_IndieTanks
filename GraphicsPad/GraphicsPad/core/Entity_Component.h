@@ -1,4 +1,4 @@
-/*#ifndef ENTITY_COMPONENT_H_INCLUDED
+#ifndef ENTITY_COMPONENT_H_INCLUDED
 #define ENTITY_COMPONENT_H_INCLUDED
 
 #include "../transform.h"
@@ -32,4 +32,3 @@ private:
 };
 
 #endif //Entity_Component_H_INCLUDED
-*/

@@ -1,6 +1,6 @@
-/*#include "Entity.h"
+#include "Entity.h"
 #include "Entity_Component.h"
-#include "coreEngine.h"
+#include "Main_IndieTanks.h"
 
 Entity::~Entity()
 {
@@ -12,20 +12,20 @@ Entity::~Entity()
 		}
 	}
 
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	for (unsigned int i = 0; i < children.size(); i++)
 	{
-		if (m_children[i])
+		if (children[i])
 		{
-			delete m_children[i];
+			delete children[i];
 		}
 	}
 }
 
 Entity* Entity::AddChild(Entity* child)
 {
-	m_children.push_back(child);
-	child->GetTransform()->SetParent(&m_transform);
-	child->SetEngine(m_coreEngine);
+	children.push_back(child);
+	child->GetTransform()->SetParent(&GO_transform);
+	child->SetEngine(coreEngine);
 	return this;
 }
 
@@ -40,9 +40,9 @@ void Entity::ProcessInputAll(const SDL_Event& input, float delta)
 {
 	ProcessInput(input, delta);
 
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	for (unsigned int i = 0; i < children.size(); i++)
 	{
-		m_children[i]->ProcessInputAll(input, delta);
+		children[i]->ProcessInputAll(input, delta);
 	}
 }
 
@@ -50,9 +50,9 @@ void Entity::UpdateAll(float delta)
 {
 	Update(delta);
 
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	for (unsigned int i = 0; i < children.size(); i++)
 	{
-		m_children[i]->UpdateAll(delta);
+		children[i]->UpdateAll(delta);
 	}
 }
 
@@ -60,15 +60,15 @@ void Entity::RenderAll(const Shader& shader, const RenderingEngine& renderingEng
 {
 	Render(shader, renderingEngine, camera);
 
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	for (unsigned int i = 0; i < children.size(); i++)
 	{
-		m_children[i]->RenderAll(shader, renderingEngine, camera);
+		children[i]->RenderAll(shader, renderingEngine, camera);
 	}
 }
 
 void Entity::ProcessInput(const SDL_Event& input, float delta)
 {
-	m_transform.Update();
+	GO_transform.UpdateTransforms();
 
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
@@ -94,18 +94,18 @@ void Entity::Render(const Shader& shader, const RenderingEngine& renderingEngine
 
 void Entity::SetEngine(CoreEngine* engine)
 {
-	if (m_coreEngine != engine)
+	if (coreEngine != engine)
 	{
-		m_coreEngine = engine;
+		coreEngine = engine;
 
 		for (unsigned int i = 0; i < components.size(); i++)
 		{
 			components[i]->AddToEngine(engine);
 		}
 
-		for (unsigned int i = 0; i < m_children.size(); i++)
+		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			m_children[i]->SetEngine(engine);
+			children[i]->SetEngine(engine);
 		}
 	}
 }
@@ -114,13 +114,12 @@ std::vector<Entity*> Entity::GetAllAttached()
 {
 	std::vector<Entity*> result;
 
-	for (unsigned int i = 0; i < m_children.size(); i++)
+	for (unsigned int i = 0; i < children.size(); i++)
 	{
-		std::vector<Entity*> childObjects = m_children[i]->GetAllAttached();
+		std::vector<Entity*> childObjects = children[i]->GetAllAttached();
 		result.insert(result.end(), childObjects.begin(), childObjects.end());
 	}
 
 	result.push_back(this);
 	return result;
 }
-*/

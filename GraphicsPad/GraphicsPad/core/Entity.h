@@ -1,4 +1,4 @@
-/*#ifndef ENTITYOBJECT_H
+#ifndef ENTITYOBJECT_H
 #define ENTITYOBJECT_H
 
 #include <vector>
@@ -15,8 +15,8 @@ class Entity
 {
 public:
 	Entity(const glm::vec3& pos = glm::vec3(0, 0, 0), const glm::quat& rot = glm::quat(0, 0, 0, 1), float scale = 1.0f) :
-		m_transform(pos, rot, scale),
-		m_coreEngine(0) {}
+		GO_transform(pos, rot, scale),
+		coreEngine(0) {}
 
 	virtual ~Entity();
 
@@ -29,14 +29,14 @@ public:
 
 	std::vector<Entity*> GetAllAttached();
 
-	inline Transform* GetTransform() { return &m_transform; }
+	inline Transform* GetTransform() { return &GO_transform; }
 	void SetEngine(CoreEngine* engine);
 protected:
+	Transform GO_transform;
 private:
-	std::vector<Entity*>          m_children;
+	std::vector<Entity*>          children;
 	std::vector<EntityComponent*> components;
-	Transform                     m_transform;
-	CoreEngine*                   m_coreEngine;
+	CoreEngine*                   coreEngine;
 
 	void ProcessInput(const SDL_Event& input, float delta);
 	void Update(float delta);
@@ -47,4 +47,3 @@ private:
 };
 
 #endif // GAMEOBJECT_H
-*/

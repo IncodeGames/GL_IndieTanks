@@ -16,18 +16,21 @@
 #include "Time.h"
 #include "Camera.h"
 
+#include "..\Bullet.h"
+
 class Time;
 
 float x = 0.0f;
 float y = 0.0f;
 
-float relativeX = 0.0f;
-float relativeY = 0.0f;
-
 float rotX = 0.0f;
 float rotY = 0.0f;
 
-float zoom = 0.0f;
+float speedForward = 0.0f;
+float speedStrafe = 0.0f;
+
+Camera camera(glm::vec3(0, 0, -12), 70.0f, (float)1920 / 1080, 0.01f, 1000.0f);
+
 Main_IndieTanks::Main_IndieTanks(): gameState(GameState::RUNNING), 
 									time(0),
 									mainWidth(1920),
@@ -48,7 +51,7 @@ void Main_IndieTanks::Run()
 
 void Main_IndieTanks::Start()
 {
-	
+	SDL_SetRelativeMouseMode((SDL_bool)1);
 }
 
 void Main_IndieTanks::Update()
@@ -62,9 +65,16 @@ void Main_IndieTanks::Update()
 	//Use shader programs
 	colorShaderProgram.Use();
 	
-	Camera camera(glm::vec3(0, 0, -12), 70.0f, (float)getWidth() / getHeight(), 0.01f, 1000.0f);
-	camera.move(glm::vec3(relativeX, relativeY, zoom));
+	//Camera camera(glm::vec3(0, 0, -12), 70.0f, (float)getWidth() / getHeight(), 0.01f, 1000.0f);
+	camera.moveForward(speedForward);
+	camera.strafe(speedStrafe);
 	camera.rotate(rotX, rotY);
+
+	/*speedForward = 0;
+	speedStrafe = 0;*/
+	rotX = 0;
+	rotY = 0;
+	
 
 	glm::mat4 projectionMatrix = camera.GetViewProjection();
 	glm::mat4 translationProjectionMatrix = glm::translate(projectionMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
@@ -86,6 +96,9 @@ void Main_IndieTanks::Update()
 
 	Cube cube(0);
 	cube.draw();
+
+	Bullet bullet(glm::vec3(-5.0f, 0, 0), 8.0f);
+	bullet.Move(glm::vec3(1, 0, 0.1f));
 	
 	Mesh mesh2("./Assets/Tank.obj");
 	Texture texture("./Textures/MetalPlates.jpg");
@@ -109,7 +122,7 @@ void Main_IndieTanks::GameLoop()
 		float newTicks = SDL_GetTicks();
 		float frameTime = newTicks - preivousTicks;
 		preivousTicks = newTicks;
-		printf("%f\n", frameTime);
+		//printf("%f\n", frameTime);
 
 		float totalDeltaTime = frameTime / TARGET_FRAMERATE;
 
@@ -136,28 +149,32 @@ void Main_IndieTanks::ProcessInput()
 		{
 			case SDL_MOUSEMOTION:
 			{
-				printf("X mouse position: %i \n", inputEvent.motion.xrel );
-				printf("Y mouse position: %i \n\n", inputEvent.motion.yrel );	
+				//printf("X mouse position: %i \n", inputEvent.motion.xrel );
+				//printf("Y mouse position: %i \n\n", inputEvent.motion.yrel );	
 				x = inputEvent.motion.x;
 				y = inputEvent.motion.y;
+
 				if (inputEvent.button.button == SDL_BUTTON_MIDDLE)
 				{
-					
-					relativeX -= inputEvent.motion.xrel / 5;
-					relativeY -= inputEvent.motion.yrel / 5;
+
 				}
 				if (inputEvent.button.button == SDL_BUTTON(SDL_BUTTON_RIGHT))
 				{
-					
-					rotX += inputEvent.motion.xrel / 1000.0f;
-					rotY -= inputEvent.motion.yrel / 1000.0f;
+					if (inputEvent.motion.xrel < getWidth() / 2)
+					{
+						rotX += inputEvent.motion.xrel / 1000.0f;
+					}
+					if (inputEvent.motion.yrel < getHeight()/ 2)
+					{
+						rotY -= inputEvent.motion.yrel / 1000.0f;
+					}
 				}
 				
 				break;
 			}
 			case SDL_MOUSEWHEEL:
 			{
-				zoom += inputEvent.wheel.y;
+				speedForward = inputEvent.wheel.y;
 			}
 			case SDL_KEYDOWN:
 			{
@@ -168,19 +185,52 @@ void Main_IndieTanks::ProcessInput()
 				}
 				if (key.sym == SDLK_RIGHT)
 				{
-					rotX += 0.1f;
+					rotX += 0.05f;
 				}
 				if (key.sym == SDLK_LEFT)
 				{
-					rotX -= 0.1f;
+					rotX -= 0.05f;
 				}
 				if (key.sym == SDLK_UP)
 				{
-					rotY += 0.1f;
+					rotY += 0.05f;
 				}
 				if (key.sym == SDLK_DOWN)
 				{
-					rotY -= 0.1f;
+					rotY -= 0.05f;
+				}
+				if (key.sym == SDLK_w)
+				{
+					speedForward = 0.34f;
+				}
+				if (key.sym == SDLK_s)
+				{
+					speedForward = -0.34f;
+				}
+				if (key.sym == SDLK_a)
+				{
+					speedStrafe = -0.34f;
+				}
+				if (key.sym == SDLK_d)
+				{
+					speedStrafe = 0.34f;
+				}
+				if (key.sym == SDLK_SPACE)
+				{
+					
+				}
+				break;
+			}
+			case SDL_KEYUP:
+			{
+				SDL_Keysym key = inputEvent.key.keysym;
+				if (key.sym == SDLK_w || key.sym == SDLK_s)
+				{
+					speedForward = 0;
+				}
+				if (key.sym == SDLK_a || key.sym == SDLK_d)
+				{
+					speedStrafe = 0;
 				}
 				break;
 			}
@@ -202,6 +252,7 @@ void Main_IndieTanks::InitSystems()
 	glDepthFunc(GL_LESS);
 	InitShaders();
 
+	Start();
 }
 
 void Main_IndieTanks::InitShaders()

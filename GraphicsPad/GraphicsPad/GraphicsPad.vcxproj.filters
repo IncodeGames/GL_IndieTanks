@@ -19,6 +19,7 @@
     <ClCompile Include="core\Time.cpp" />
     <ClCompile Include="core\Input.cpp" />
     <ClCompile Include="Primitives\Plane.cpp" />
+    <ClCompile Include="Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Primitives\Vertex2D.h" />
@@ -44,5 +45,6 @@
     <ClInclude Include="core\Time.h" />
     <ClInclude Include="core\Input.h" />
     <ClInclude Include="Primitives\Plane.h" />
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
 </Project>
