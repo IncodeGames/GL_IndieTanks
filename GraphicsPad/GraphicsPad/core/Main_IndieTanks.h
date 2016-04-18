@@ -41,6 +41,7 @@ class Main_IndieTanks
 		void InitShaders();
 		void GameLoop();
 		void Start();
+		void RenderObjects();
 		void Update();
 		void ProcessInput();
 };

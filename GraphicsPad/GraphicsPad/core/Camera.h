@@ -36,8 +36,8 @@ public:
 
 	void moveForward(float speed)
 	{
-		printf("forward position: %f %f %f \n\n", forward.x, forward.y, forward.z);
 		GO_transform.position +=  speed * forward;
+		printf("forward position: %f %f %f \n\n", forward.x, forward.y, forward.z);
 	}
 
 	void strafe(float speed)

@@ -8,6 +8,7 @@ Bullet::Bullet(glm::vec3 pos, float lifeSecs): lifetime(lifeSecs)
 
 Bullet::Bullet(float lifeSecs) : lifetime(lifeSecs)
 {
+	
 }
 
 void Bullet::Move(glm::vec3 newPos)

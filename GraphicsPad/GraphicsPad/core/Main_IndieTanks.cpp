@@ -54,6 +54,26 @@ void Main_IndieTanks::Start()
 	SDL_SetRelativeMouseMode((SDL_bool)1);
 }
 
+void Main_IndieTanks::RenderObjects()
+{
+	Triangle triangle(0);
+	triangle.draw();
+
+	Plane plane(0);
+	plane.draw();
+
+	Cube cube(0);
+	cube.draw();
+
+	Bullet bullet(glm::vec3(-5.0f, 0, 0), 8.0f);
+	bullet.Move(glm::vec3(1, 0, 0.1f));
+
+	Mesh mesh2("./Assets/Tank.obj");
+	//Texture texture("./Textures/MetalPlates.jpg");
+	//texture.Bind();
+	mesh2.Draw();
+}
+
 void Main_IndieTanks::Update()
 {
 	//Clear color and depth buffers
@@ -69,11 +89,6 @@ void Main_IndieTanks::Update()
 	camera.moveForward(speedForward);
 	camera.strafe(speedStrafe);
 	camera.rotate(rotX, rotY);
-
-	/*speedForward = 0;
-	speedStrafe = 0;*/
-	rotX = 0;
-	rotY = 0;
 	
 
 	glm::mat4 projectionMatrix = camera.GetViewProjection();
@@ -88,22 +103,7 @@ void Main_IndieTanks::Update()
 	GLuint timeLocation = colorShaderProgram.GetUniformLocation("time");
 	glUniform1f(timeLocation, (float)Time::time);
 
-	Triangle triangle(0);
-	triangle.draw();
-
-	Plane plane(0);
-	plane.draw();
-
-	Cube cube(0);
-	cube.draw();
-
-	Bullet bullet(glm::vec3(-5.0f, 0, 0), 8.0f);
-	bullet.Move(glm::vec3(1, 0, 0.1f));
-	
-	Mesh mesh2("./Assets/Tank.obj");
-	Texture texture("./Textures/MetalPlates.jpg");
-	texture.Bind();
-	mesh2.Draw();
+	RenderObjects();
 
 	//Unuse shader programs
 	colorShaderProgram.Unuse();
@@ -131,7 +131,7 @@ void Main_IndieTanks::GameLoop()
 		Time::Timestep(totalDeltaTime); //TODO: make a time related class, and handle time for physics, and rendering
 
 		int i = 0;
-		if (totalDeltaTime > 0.0f && i < MAX_UPDATE_ITERATIONS)
+		if (i < MAX_UPDATE_ITERATIONS)
 		{
 			Update();
 			i++;
@@ -158,23 +158,32 @@ void Main_IndieTanks::ProcessInput()
 				{
 
 				}
+				
 				if (inputEvent.button.button == SDL_BUTTON(SDL_BUTTON_RIGHT))
 				{
+					printf("X mouse position: %i \n", inputEvent.motion.xrel);
+					printf("Y mouse position: %i \n\n", inputEvent.motion.yrel );	
 					if (inputEvent.motion.xrel < getWidth() / 2)
 					{
-						rotX += inputEvent.motion.xrel / 1000.0f;
+						rotX = inputEvent.motion.xrel * 0.75f / 25.0f;
 					}
-					if (inputEvent.motion.yrel < getHeight()/ 2)
+					if (inputEvent.motion.yrel < getHeight() / 2)
 					{
-						rotY -= inputEvent.motion.yrel / 1000.0f;
+						rotY = -(inputEvent.motion.yrel * 0.75f / 25.0f);
 					}
 				}
+				else
+				{
+					rotX = 0.0f;
+					rotY = 0.0f;
+				}				
 				
 				break;
 			}
 			case SDL_MOUSEWHEEL:
 			{
 				speedForward = inputEvent.wheel.y;
+				break;
 			}
 			case SDL_KEYDOWN:
 			{
@@ -185,19 +194,19 @@ void Main_IndieTanks::ProcessInput()
 				}
 				if (key.sym == SDLK_RIGHT)
 				{
-					rotX += 0.05f;
+					rotX = 0.05f;
 				}
 				if (key.sym == SDLK_LEFT)
 				{
-					rotX -= 0.05f;
+					rotX = -0.05f;
 				}
 				if (key.sym == SDLK_UP)
 				{
-					rotY += 0.05f;
+					rotY = 0.05f;
 				}
 				if (key.sym == SDLK_DOWN)
 				{
-					rotY -= 0.05f;
+					rotY = -0.05f;
 				}
 				if (key.sym == SDLK_w)
 				{
@@ -232,6 +241,14 @@ void Main_IndieTanks::ProcessInput()
 				{
 					speedStrafe = 0;
 				}
+				if (key.sym == SDLK_LEFT || key.sym == SDLK_RIGHT)
+				{
+					rotX = 0.0f;
+				}
+				if (key.sym == SDLK_UP || key.sym == SDLK_DOWN)
+				{
+					rotY = 0.0f;
+				}
 				break;
 			}
 			case SDL_QUIT:
@@ -245,7 +262,6 @@ void Main_IndieTanks::ProcessInput()
 
 void Main_IndieTanks::InitSystems()
 {
-	//display = new Display(1024, 768, "Hello world");
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);

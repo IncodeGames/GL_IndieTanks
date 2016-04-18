@@ -17,7 +17,6 @@ private:
 
 	float lifetime;
 
-	//void Move(glm::vec3 newPos);
 };
 
 #endif //BULLET_H
