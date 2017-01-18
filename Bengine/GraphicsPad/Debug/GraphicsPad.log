@@ -1,0 +1,32 @@
+﻿Build started 1/18/2017 12:16:32 PM.
+     1>Project "G:\CS397Repo\Bengine\GraphicsPad\GraphicsPad.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I.\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt core\Main_IndieTanks.cpp
+         Main_IndieTanks.cpp
+     1>g:\cs397repo\bengine\graphicspad\primitives\vertex3d.h(51): warning C4244: '=': conversion from 'float' to 'GLubyte', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\primitives\vertex3d.h(52): warning C4244: '=': conversion from 'float' to 'GLubyte', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\primitives\vertex3d.h(53): warning C4244: '=': conversion from 'float' to 'GLubyte', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(96): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(110): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(114): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(146): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(147): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+     1>g:\cs397repo\bengine\graphicspad\core\main_indietanks.cpp(177): warning C4244: '=': conversion from 'Sint32' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\CS397Repo\Bengine\Debug\GraphicsPad.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\lib glew32.lib glew32s.lib SDL2.lib SDL2main.lib SDL2test.lib OpenGL32.lib assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"G:\CS397Repo\Bengine\Debug\GraphicsPad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\CS397Repo\Bengine\Debug\GraphicsPad.lib" /MACHINE:X86 Debug\Display.obj
+         Debug\GLSLProgram.obj
+         Debug\IOManager.obj
+         Debug\Main_IndieTanks.obj
+         Debug\Input.obj
+         Debug\Time.obj
+         Debug\Plane.obj
+         Debug\Cube.obj
+         Debug\ShapeBase.obj
+         Debug\Sprite.obj
+         Debug\Triangle.obj
+         GraphicsPad.vcxproj -> G:\CS397Repo\Bengine\Debug\GraphicsPad.exe
+     1>Done Building Project "G:\CS397Repo\Bengine\GraphicsPad\GraphicsPad.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.87
